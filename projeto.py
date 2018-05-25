@@ -64,7 +64,8 @@ while gameloop:
         if event.type == KEYUP and event.key == K_c:
             charging = False
         if event.type == KEYUP and event.key == K_x:
-            jump = True
+            if wallslide == True or not jump():
+                jump = True
             pg.time.wait(2)
             jump = False
 pg.display.update

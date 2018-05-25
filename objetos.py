@@ -27,7 +27,8 @@ class gameStuff():
                 mainMenu = True
 
         def wallkick(self):
-            pass
+            if wallslide == True:
+                y -= 2
 
         def standRight(self):
             Player.sprite = initX
@@ -122,7 +123,9 @@ class gameStuff():
 
         def jump(self):
             while jump:
-                y += 2
+                y += 10
+            if not wallslide:
+                y -= 10
 
     class ranking():
         pass
