@@ -19,12 +19,10 @@ class gameStuff():
                 spawnX = spawnX[img]
                 Player.sprite = img
                 pg.display.flip()
-        def die(self):
-            if hp > 0:
-                pass
-            else:
-                gameloop = False
-                mainMenu = True
+                img += 1
+        #def die(self):
+        #    if hp > 0 or y < altura:
+        #        pg.quit()
 
         def wallkick(self):
             if wallslide == True:
@@ -73,6 +71,7 @@ class gameStuff():
                         lwalkloopX = lwalkloopX[img]
                         Player.sprite = img
                         pg.display.flip()
+                        img += 1
             if right == False and left == False:
                 Player.sprite = linitX(x,y)
             pg.display.flip()
@@ -86,6 +85,7 @@ class gameStuff():
                         rwalkloopX = rwalkloopX[img]
                         Player.sprite = img,(x,y)
                         pg.display.flip()
+                        img += 1
                 if right == False and left == False:
                     Player.sprite = initX(x,y)
                     pg.display.flip()
@@ -108,40 +108,71 @@ class gameStuff():
                     pg.time.wait(2)
                     dmg+= 5
 
+#animações de tiro
         def fire(self):
             if jump:
                 if left:
-                    Player.sprite = rshootingX(x,y)
-                    pg.display.flip()
+                    for img in range (ljumpfire1,ljumpfire2):
+                        ljumpfireloop = ljumpfireloop[img]
+                        Player.sprite = ljumpfireloop(x,y)
+                        pg.display.flip()
+                        img += 1
                     Player.sprite = initX(x,y)
                     pg.display.flip()
                 if right:
-                    Player.sprite = rshootingX(x,y)
-                    pg.display.flip()
+                    for img in range (rjumpfire1,rjumpfire2):
+                        rjumpfireloop = rjumpfireloop[img]
+                        Player.sprite = rjumpfireloop(x,y)
+                        pg.display.flip()
+                        img += 1
                     Player.sprite = initX(x,y)
                     pg.display.flip()
             if dash:
                 if left:
-                    Player.sprite = rshootingX(x,y)
+                    Player.sprite = ldashshot(x,y)
                     pg.display.flip()
-                    Player.sprite = initX(x,y)
-                    pg.display.flip()
-                if right:
-                    Player.sprite = rshootingX(x,y)
-                    pg.display.flip()
-                    Player.sprite = initX(x,y)
-                    pg.display.flip()
-            if wallkick:
-                if left:
-                    Player.sprite = rshootingX(x,y)
-                    pg.display.flip()
-                    Player.sprite = initX(x,y)
+                    pg.time.wait(2)
+                    Player.sprite = linitX(x,y)
                     pg.display.flip()
                 if right:
-                    Player.sprite = rshootingX(x,y)
+                    Player.sprite = rdashshot(x,y)
                     pg.display.flip()
+                    pg.time.wait(2)
                     Player.sprite = initX(x,y)
                     pg.display.flip()
+
+            #if wallkick:
+            #    if left:
+            #        Player.sprite = rshootingX(x,y)
+            #        pg.display.flip()
+            #         pg.time.wait(1)
+            #    if not wallkick
+            #        Player.sprite = linitX(x,y)
+            #        pg.display.flip()
+            #    if right:
+            #        Player.sprite = rshootingX(x,y)
+            #        pg.display.flip()
+            #        Player.sprite = initX(x,y)
+            #        pg.display.flip()
+
+            if left:
+                for img in range (lwalkShootX1,lwalkShootX6):
+                    lwalkloopX = lwalkloopX[img]
+                    Player.sprite = lwalkloopX(x,y)
+                    pg.display.flip()
+
+                Player.sprite = linitX(x,y)
+                pg.display.flip()
+            if right:
+                for img in range (rwalkShootX1,rwalkShootX6)
+                    rwalkloopX = rwalkloopX[img]
+                    Player.sprite = rwalkloopX(x,y)
+                    pg.display.flip()
+                pg.time.wait(2)
+                Player.sprite = initX(x,y)
+                pg.display.flip()
+
+            #standingPose
             if Player.sprite == initX:
                 Player.sprite = rshootingX(x,y)
                 pg.display.flip()
@@ -154,14 +185,18 @@ class gameStuff():
                 pg.display.flip()
             enemy.hp -= dmg
 
+
         def jump(self):
             while jump:
-
+                Player.sprite = jump1,(x,y)
+                pg.display.flip()
+                img += 1
                 y += 10
+                pg.display.flip()
                 pg.time.wait(2)
                 jump = False
-                pg.display.update
             if not wallslide:
+                Player.sprite = jump1,(x,y)
                 y -= 10
                 pg.display.update
 
