@@ -109,12 +109,45 @@ class gameStuff():
                     dmg+= 5
 
         def fire(self):
+            if jump:
+                if left:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
+                if right:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
+            if dash:
+                if left:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
+                if right:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
+            if wallkick:
+                if left:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
+                if right:
+                    Player.sprite = rshootingX(x,y)
+                    pg.display.flip()
+                    Player.sprite = initX(x,y)
+                    pg.display.flip()
             if Player.sprite == initX:
                 Player.sprite = rshootingX(x,y)
                 pg.display.flip()
                 Player.sprite = initX(x,y)
                 pg.display.flip()
-            if Player == linitX(x,y):
+            if Player.sprite == linitX(x,y):
                 Player.sprite = lshootingX(x,y)
                 pg.display.flip()
                 Player.sprite = initX(x,y)
@@ -123,9 +156,14 @@ class gameStuff():
 
         def jump(self):
             while jump:
+
                 y += 10
+                pg.time.wait(2)
+                jump = False
+                pg.display.update
             if not wallslide:
                 y -= 10
+                pg.display.update
 
     class ranking():
         pass
