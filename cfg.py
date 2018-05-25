@@ -18,7 +18,7 @@ hp = 100
 
 #carrega imagens
 title = pg.image.load(os.path.join("tex","title.jpg")).convert()
-lvlbg = pg.image.load(os.path.join("tex","dystopia.jpg")).convert()
+lvlbg = pg.image.load(os.path.join("tex","centralhighway.jpg")).convert()
 pausescr = pg.image.load(os.path.join("tex","pause.jpg")).convert()
 initX = pg.image.load(os.path.join("tex","X","idlexR.png")).convert()
 linitX = pg.image.load(os.path.join("tex","X","idlexL.png")).convert()
