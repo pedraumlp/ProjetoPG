@@ -9,24 +9,62 @@ class gameStuff():
     class enemy(pg.sprite.Sprite):
         def __init__(self):
             sigmaClone = Surface((largura/3.83,altura/8.53),pg.SRCALPHA)
-            hp = 10
+            self.hp = 10
+            self.status = "alive"
+
+        def die(self):
+            if self.hp > 0 or self.y < altura:
+                self.status = "dead"
+            if self.status == "dead"
+                #destrua o objeto ou tire da tela
+                pass
 
     class Player(pg.sprite.Sprite):
         def __init__(self):
-            Player.mmX = Surface((largura/4,altura/8,53),pg.SRCALPHA)
-            Player.pos = (x,y)
-            for img in range (spawn1,initX):
+            self.mmX = Surface((largura/4,altura/8,53),pg.SRCALPHA)
+            self.pos = (x,y)
+            self.hp = 50
+            for img in range (spawn1,initX,1):
                 spawnX = spawnX[img]
-                Player.sprite = img
+                self.sprite = img
                 pg.display.flip()
-                img += 1
-        #def die(self):
-        #    if hp > 0 or y < altura:
-        #        pg.quit()
+
+        def asuraBlink(self):
+            if asuraF == True
+                if left:
+                    self.sprite = asuraLeft
+                    pg.display.flip()
+                    pg.time.wait(1/2)
+                    self.sprite = linitX
+                    pg.display.flip()
+                if right:
+                    self.sprite = asuraRight
+                    pg.display.flip()
+                    pg.time.wait(1/2)
+                    self.sprite = initX
+                    pg.display.flip()
+        def die(self):
+            if self.hp > 0 or self.y < altura:
+                pg.time.wait(5)
+                mainMenu = True
 
         def wallkick(self):
             if wallslide == True:
                 y -= 2
+
+        def asuraFist(self):
+            if asuraF == True:
+                if asura == True:
+                    if left:
+                        self.sprite = asuraRight
+                        pg.display.flip()
+                        self.sprite = asuraFireRight
+                    if right:
+                         self.sprite = asuraLeft
+                         pg.display.flip()
+                         self.sprite = asuraFireLeft
+                         #self.projectile =
+            asura = False
 
         def standRight(self):
             Player.sprite = initX
@@ -92,7 +130,7 @@ class gameStuff():
 
         def crouch (self):
             while down:
-                x += 0
+                self.x += 0
                 y += 0
                 if right or Player.sprite == initX:
                     Player.sprite = rcrouchX,(x,y)

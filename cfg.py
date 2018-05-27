@@ -14,7 +14,6 @@ tempo = pg.time.get_ticks()
 pg.mouse.set_visible(0)
 key = pg.key.get_pressed()
 gameloop = True
-hp = 100
 
 #carrega imagens
 title = pg.image.load(os.path.join("tex","title.jpg")).convert()
@@ -68,6 +67,10 @@ ljumpfire1 = pg.image.load(os.path.join("tex","X","ljumpfire1.png")).convert()
 ljumpfire2 = pg.image.load(os.path.join("tex","X","ljumpfire2.png")).convert()
 rjumpfire1 = pg.image.load(os.path.join("tex","X","rjumpfire1.png")).convert()
 rjumpfire2 = pg.image.load(os.path.join("tex","X","rjumpfire2.png")).convert()
+asuraRight = pg.image.load(os.path.join("tex","X","asuraFistR.png")).convert()
+asuraLeft = pg.image.load(os.path.join("tex","X","asuraFistL.png")).convert()
+asuraFireLeft = pg.image.load(os.path.join("tex","X","asuraFireL.png")).convert()
+asuraFireRight = pg.image.load(os.path.join("tex","X","asuraFireR.png")).convert()
 lwalkloopX = [lwalkstart,lwalkX1,lwalkX2,lwalkX3,lwalkX4,lwalkX5,lwalkX6]
 rwalkloopX = [rwalkstart,rwalkX1,rwalkX2,rwalkX3,rwalkX4,rwalkX5,rwalkX6]
 lwalkshootloopX = [lwalkShootX1, lwalkShootX2, lwalkShootX3, lwalkShootX4, lwalkShootX5, lwalkShootX6]
@@ -77,8 +80,8 @@ jumploop = [jump1, jump2]
 jumpfireloop = [jumpfire1, jumpfire2]
 
 #variáveis de posicionamento do personagem e câmera
-x = 5
-y = 10
+PLayer.x = 5
+Player.y = 10
 
 #tuplas de cores
 WHITE = (255, 255, 255)

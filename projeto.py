@@ -20,13 +20,13 @@ pg.mixer.music.load(os.path.join('sound','dystopia.mp3'))
 pg.mixer.music.play(-1,0.0)
 pg.mixer.music.pause
 gameloop = True
+asura = False
 
 #início do loop do jogo
 while gameloop:
-    #rotina do jogo
-    #while mainMenu:
-    #    screen.blit(title, (0,0))
-
+  #rotina do jogo
+  #while mainMenu:
+    # screen.blit(title, (0,0))
     screen.blit(lvlbg, (0,0))
     pg.mixer.music.unpause
     clock.tick(FRAMERATE)
@@ -53,6 +53,8 @@ while gameloop:
             charging = True
         if event.type ==KEYDOWN and event.key == K_x:
             jump = True
+        if event.type == KEYDOWN and event.key == K_v:
+            asura = True
         if event.type == KEYUP and event.key == K_x or K_SPACE:
             up = False
         if event.type == KEYUP and event.key == K_DOWN:
@@ -66,6 +68,10 @@ while gameloop:
         if event.type == KEYUP and event.key == K_x:
             if wallslide == True or not jump():
                 jump = True
-                
+        if event.type == KEYUP and event.key == K_v:
+            asura = False
+    pg.time.wait(60)
+    asuraF = True
+
 pg.display.update
 pg.quit()
