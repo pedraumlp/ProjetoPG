@@ -8,6 +8,7 @@ import os
 import random
 from objetos import *
 from cfg import *
+import cfg
 
 #inicializa o pygame
 try:
@@ -28,7 +29,6 @@ while gameloop:
   #rotina do jogo
     #while mainMenu:
         # screen.blit(title, (0,0))
-    Player.score += pg.time.get_ticks()/10**3
     screen.blit(lvlbg, (0,0))
     pg.mixer.music.unpause
     clock.tick(FRAMERATE)

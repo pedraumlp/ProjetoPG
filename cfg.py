@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import pygame as pg
 import os
+import objetos
+from objetos import *
 
 #configurações de resolução de tela, cores e taxa de quadros
 largura = 1280
@@ -10,7 +12,6 @@ FRAMERATE = 60
 screen = pg.display.set_mode(RESOLUCAO)
 pg.display.set_caption("Megaman X Pygame")
 clock = pg.time.Clock()
-pg.time.clock.tick(FRAMERATE)
 tempo = pg.time.get_ticks()
 pg.mouse.set_visible(0)
 key = pg.key.get_pressed()
@@ -63,7 +64,7 @@ spawn2 = pg.image.load(os.path.join("tex","X","spawn2.png")).convert()
 spawn3 = pg.image.load(os.path.join("tex","X","spawn3.png")).convert()
 spawn4 = pg.image.load(os.path.join("tex","X","spawn4.png")).convert()
 ljump1 = pg.image.load(os.path.join("tex","X","ljump1.png")).convert()
-ljump2 = pg.image.load(os.path.join("tex","X","lump2.png")).convert()
+ljump2 = pg.image.load(os.path.join("tex","X","ljump2.png")).convert()
 rjump1 = pg.image.load(os.path.join("tex","X","rjump1.png")).convert()
 rjump2 = pg.image.load(os.path.join("tex","X","rjump2.png")).convert()
 ljumpfire1 = pg.image.load(os.path.join("tex","X","ljumpfire1.png")).convert()
@@ -83,81 +84,7 @@ rsigmaidle = pg.image.load(os.path.join("tex","enemies","Rsigmaidle.png")).conve
 lwalkshootloopX = [lwalkShootX1, lwalkShootX2, lwalkShootX3, lwalkShootX4, lwalkShootX5, lwalkShootX6]
 rwalkshootloopX = [rwalkShootX1, rwalkShootX2, rwalkShootX3, rwalkShootX4, rwalkShootX5, rwalkShootX6]
 spawnX = [spawn1, spawn2, spawn3, spawn4, initX]
-jumploop = [jump1, jump2]
-jumpfireloop = [jumpfire1, jumpfire2]
-
-#variáveis de posicionamento do personagem e câmera
-Player.x = 5
-Player.y = ground.y
-
-if Player.x == ground.x
-    left = False
-if Player.x == 2599
-    pg.mixer.music.stop
-    left = False
-    right = False
-    dash = False
-    if Player.facing == "left"
-        Player.sprite = rvictory
-        pg.display.flip()
-        Player.sprite = spawn4
-        pg.display.flip()
-        Player.sprite = spawn3
-        pg.display.flip()
-        Player.sprite = spawn2
-        pg.display.flip()
-        Player.sprite = spawn1
-        pg.display.flip()
-        Player.y += 2
-        pg.display.flip()
-        while Player.y < 0:
-            Player.y += 2
-            pg.display.flip()
-        pg.time.wait(5)
-        pg.QUIT
-
-    if Player.facing == "right"
-        Player.sprite = lvictory
-        pg.display.flip()
-        Player.sprite = spawn4
-        pg.display.flip()
-        Player.sprite = spawn3
-        pg.display.flip()
-        Player.sprite = spawn2
-        pg.display.flip()
-        Player.sprite = spawn1
-        Player.y += 2
-        pg.display.flip()
-        while Player.y < 0:
-            Player.y += 2
-            pg.display.flip()
-        pg.time.wait(5)
-        pg.QUIT
-
 #gravidade
-while Player.y > ground.y :#and not wallslide:
-    jump = False
-    if jump = False:
-        y -= 5
-        Player.sprite = jump2
-        if fire = True
-            Player.sprite = jumpfire2
-if Player.facing == "left" and Player.y == ground.y:
-    Player.sprite == initX
-    screen.blit(Player.sprite(Player.x,Player.y))
-if Player.facing == "right" and Player.y == ground.y:
-    Player.sprite == linitX
-
-#colisão
-if Player.projectile.x == enemy.x and Player.projectile.y == enemy.y:
-    if event.type == KEYUP and event.key == K_DOWN:
-        enemy.hp -= Player.dmg
-
-if enemy.x == Player.x and enemy.y == enemy.y:
-    Player.hp -= enemy.dmg
-
-if enemy.projectile.x == Player.x and enemy.projectile.y == Player.y:
-    Player.hp -= enemy.dmg
 
 #tuplas de cores
 WHITE = (255, 255, 255)
