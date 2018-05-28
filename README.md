@@ -1,8 +1,16 @@
-implementar ranking
-implementar hud (hp, vidas e menus com seleção)
-contagem de tempo
+======================================Megaman X Pygame Powered======================================
 
-cortar efeitos de audio do personagem e colocá-los pra tocar nas funções
+Falta:
+- Spawnar X com sucesso e mecânicas funcionais
 
-wallkick (na queda do pulo checa se há uma parede e se houver entra
-num while (lado - right ou left) cujo o -= do y é menor que o da queda comum e a imagem seta pra animação do wallslide respectivo ao invés da animação da queda e habilita um segundo pulo)
+- Resolver conflitos de orientação a objeto em arquivos diferentes (movendo todo o código pra um arquivo py só ou resolvendo importação)
+
+- Criar Projétil e fazer movimentação até o alvo para destruí-lo
+
+- Implementar hud (hp, vidas e menus com seleção)
+
+- Cortar efeitos de áudio do personagem e colocá-los pra tocar nas respectivas funções
+
+- Implementar tela do ranking retornando Player.score
+
+- Cortar e importar sprites dos Sigma Clones
