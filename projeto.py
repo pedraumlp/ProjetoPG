@@ -28,6 +28,7 @@ while gameloop:
   #rotina do jogo
     #while mainMenu:
         # screen.blit(title, (0,0))
+    Player.score += pg.time.get_ticks()/10**3
     screen.blit(lvlbg, (0,0))
     pg.mixer.music.unpause
     clock.tick(FRAMERATE)
@@ -35,10 +36,8 @@ while gameloop:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             gameloop = False
-        if event.type == KEYDOWN and event.key == ((K_LALT or K_RALT) and K_F4):
-            mainMenu = False
+        if event.type == KEYDOWN and event.key == K_F4:
             gameloop = False
-            pg.quit()
         if event.type == KEYDOWN and event.key == K_ESCAPE:
             screen.blit(pausescr, (0,0))
             pg.display.flip
@@ -47,7 +46,7 @@ while gameloop:
         if event.type == KEYDOWN and event.key == K_DOWN:
             down = True
         if event.type == KEYDOWN and event.key == K_LEFT:
-            left = True
+                left = True
         if event.type == KEYDOWN and event.key == K_RIGHT:
             right = True
         if event.type == KEYDOWN and event.key == K_c:

@@ -19,6 +19,7 @@ gameloop = True
 #carrega imagens
 title = pg.image.load(os.path.join("tex","title.jpg")).convert()
 lvlbg = pg.image.load(os.path.join("tex","centralhighway.jpg")).convert()
+ground = pg.image.load(os.path.join("tex","surface.jpg")).convert()
 pausescr = pg.image.load(os.path.join("tex","pause.jpg")).convert()
 initX = pg.image.load(os.path.join("tex","X","idlexR.png")).convert()
 linitX = pg.image.load(os.path.join("tex","X","idlexL.png")).convert()
@@ -73,8 +74,12 @@ asuraRight = pg.image.load(os.path.join("tex","X","asuraFistR.png")).convert()
 asuraLeft = pg.image.load(os.path.join("tex","X","asuraFistL.png")).convert()
 asuraFireLeft = pg.image.load(os.path.join("tex","X","asuraFireL.png")).convert()
 asuraFireRight = pg.image.load(os.path.join("tex","X","asuraFireR.png")).convert()
+rvictory = pg.image.load(os.path.join("tex","X","Rvictory.png")).convert()
+lvictory = pg.image.load(os.path.join("tex","X","Lvictory.png")).convert()
 lwalkloopX = [lwalkstart,lwalkX1,lwalkX2,lwalkX3,lwalkX4,lwalkX5,lwalkX6]
 rwalkloopX = [rwalkstart,rwalkX1,rwalkX2,rwalkX3,rwalkX4,rwalkX5,rwalkX6]
+lsigmaidle = pg.image.load(os.path.join("tex","enemies","Lsigmaidle.png")).convert()
+rsigmaidle = pg.image.load(os.path.join("tex","enemies","Rsigmaidle.png")).convert()
 lwalkshootloopX = [lwalkShootX1, lwalkShootX2, lwalkShootX3, lwalkShootX4, lwalkShootX5, lwalkShootX6]
 rwalkshootloopX = [rwalkShootX1, rwalkShootX2, rwalkShootX3, rwalkShootX4, rwalkShootX5, rwalkShootX6]
 spawnX = [spawn1, spawn2, spawn3, spawn4, initX]
@@ -83,18 +88,70 @@ jumpfireloop = [jumpfire1, jumpfire2]
 
 #variáveis de posicionamento do personagem e câmera
 Player.x = 5
-Player.y = 10
+Player.y = ground.y
+
+if Player.x == ground.x
+    left = False
+if Player.x == 2599
+    pg.mixer.music.stop
+    left = False
+    right = False
+    dash = False
+    if Player.facing == "left"
+        Player.sprite = rvictory
+        pg.display.flip()
+        Player.sprite = spawn4
+        pg.display.flip()
+        Player.sprite = spawn3
+        pg.display.flip()
+        Player.sprite = spawn2
+        pg.display.flip()
+        Player.sprite = spawn1
+        pg.display.flip()
+        Player.y += 2
+        pg.display.flip()
+        while Player.y < 0:
+            Player.y += 2
+            pg.display.flip()
+        pg.time.wait(5)
+        pg.QUIT
+
+    if Player.facing == "right"
+        Player.sprite = lvictory
+        pg.display.flip()
+        Player.sprite = spawn4
+        pg.display.flip()
+        Player.sprite = spawn3
+        pg.display.flip()
+        Player.sprite = spawn2
+        pg.display.flip()
+        Player.sprite = spawn1
+        Player.y += 2
+        pg.display.flip()
+        while Player.y < 0:
+            Player.y += 2
+            pg.display.flip()
+        pg.time.wait(5)
+        pg.QUIT
 
 #gravidade
 while Player.y > ground.y :#and not wallslide:
     jump = False
-
-if jump = False:
-    y -= 5
+    if jump = False:
+        y -= 5
+        Player.sprite = jump2
+        if fire = True
+            Player.sprite = jumpfire2
+if Player.facing == "left" and Player.y == ground.y:
+    Player.sprite == initX
+    screen.blit(Player.sprite(Player.x,Player.y))
+if Player.facing == "right" and Player.y == ground.y:
+    Player.sprite == linitX
 
 #colisão
 if Player.projectile.x == enemy.x and Player.projectile.y == enemy.y:
-    enemy.hp -= Player.dmg
+    if event.type == KEYUP and event.key == K_DOWN:
+        enemy.hp -= Player.dmg
 
 if enemy.x == Player.x and enemy.y == enemy.y:
     Player.hp -= enemy.dmg
