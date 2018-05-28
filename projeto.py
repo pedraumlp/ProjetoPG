@@ -76,7 +76,7 @@ while gameloop:
         #if event.type == KEYUP and event.key == K_v:
         #    asura = False
         if event.type == KEYUP and event.key == K_ESCAPE:
-
+            pass
     #pg.time.wait(60)
     #asuraF = True
 
