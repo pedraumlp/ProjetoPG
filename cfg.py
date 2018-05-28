@@ -85,14 +85,22 @@ jumpfireloop = [jumpfire1, jumpfire2]
 Player.x = 5
 Player.y = 10
 
+#gravidade
 while Player.y > ground.y :#and not wallslide:
     jump = False
 
 if jump = False:
     y -= 5
 
-if projectile.x == enemy.x:
+#colisão
+if Player.projectile.x == enemy.x and Player.projectile.y == enemy.y:
     enemy.hp -= Player.dmg
+
+if enemy.x == Player.x and enemy.y == enemy.y:
+    Player.hp -= enemy.dmg
+
+if enemy.projectile.x == Player.x and enemy.projectile.y == Player.y:
+    Player.hp -= enemy.dmg
 
 #tuplas de cores
 WHITE = (255, 255, 255)
