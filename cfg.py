@@ -10,6 +10,7 @@ FRAMERATE = 60
 screen = pg.display.set_mode(RESOLUCAO)
 pg.display.set_caption("Megaman X Pygame")
 clock = pg.time.Clock()
+pg.time.clock.tick(FRAMERATE)
 tempo = pg.time.get_ticks()
 pg.mouse.set_visible(0)
 key = pg.key.get_pressed()
@@ -39,6 +40,7 @@ rwalkX3 = pg.image.load(os.path.join("tex","X","rwalkX3.png")).convert()
 rwalkX4 = pg.image.load(os.path.join("tex","X","rwalkX4.png")).convert()
 rwalkX5 = pg.image.load(os.path.join("tex","X","rwalkX5.png")).convert()
 rwalkX6 = pg.image.load(os.path.join("tex","X","rwalkX6.png")).convert()
+gameover = pg.image.load(os.path.join("tex","gameover.jpg")).convert()
 rshootingX = pg.image.load(os.path.join("tex","X","shootxR.png")).convert()
 lshootingX = pg.image.load(os.path.join("tex","X","shootxL.png")).convert()
 lwalkShootX1 = pg.image.load(os.path.join("tex","X","walkshootL1.png")).convert()
@@ -80,8 +82,17 @@ jumploop = [jump1, jump2]
 jumpfireloop = [jumpfire1, jumpfire2]
 
 #variáveis de posicionamento do personagem e câmera
-PLayer.x = 5
+Player.x = 5
 Player.y = 10
+
+while Player.y > ground.y :#and not wallslide:
+    jump = False
+
+if jump = False:
+    y -= 5
+
+if projectile.x == enemy.x:
+    enemy.hp -= Player.dmg
 
 #tuplas de cores
 WHITE = (255, 255, 255)
