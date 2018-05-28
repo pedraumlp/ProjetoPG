@@ -1,4 +1,4 @@
-======================================Megaman X Pygame Powered======================================
+===============Megaman X Pygame Powered================
 
 Falta:
 - Spawnar X com sucesso e mecânicas funcionais
